@@ -70,7 +70,7 @@ namespace MyLibraryStore.Controllers
                 return View();
             }
             _bookRepos.EditBook(id, book);
-            return RedirectToAction("Index", "Book");
+            return RedirectToAction("Index", "Books");
         }
     }
 }
