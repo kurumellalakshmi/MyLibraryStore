@@ -1,0 +1,41 @@
+﻿@model MyLibraryStore.Models.Book
+@{ ViewBag.Title = "Details of Book"; }
+
+<h1>Details Of Book</h1>
+
+@if (Model != null)
+{
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>Book Name</td>
+        <td>@Model.BookName</td>
+    </tr>
+    <tr>
+        <td>Author Name</td>
+        <td>@Model.Author</td>
+    </tr>
+    <tr>
+        <td>ISBN</td>
+        <td>@Model.ISBN</td>
+    </tr>
+    <tr>
+        <td>Published Date</td>
+        <td>@Model.PublishedDate</td>
+    </tr>
+</table> }
+            else
+            {
+<h2>No Books Available</h2>}
+
+<div class="row">
+    <div class="col-md-5">
+        <a asp-controller="Books" asp-action="Index">Back to Index</a>
+        <a asp-controller="Books" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Edit</a>
+        
+    </div>
+    <div class="col-md-5">
+        <form asp-controller="Books" asp-action="Delete" asp-route-id="@Model.Id" method="post">
+            <button formmethod="post" class="btn btn-outline-danger">Delete Book</button>
+        </form>
+    </div>
+</div>
